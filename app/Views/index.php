@@ -1,239 +1,153 @@
 <?= $this->extend("project/layout") ?>
 <?= $this->section("content") ?>
-<!--====== SLIDER ONE PART START ======-->
-<section class="slider-area slider-one">
+<body>
+  <!--====== SLIDER ONE PART START ======-->
+  <section class="slider-area slider-one">
     <div class="bd-example">
-        <div id="carouselOne" class="carousel slide-mt-5" data-bs-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-bs-target="#carouselOne" data-bs-slide-to="0" class="active"></li>
-                <li data-bs-target="#carouselOne" data-bs-slide-to="1"></li>
-                <li data-bs-target="#carouselOne" data-bs-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item bg_cover active" style="
+      <div id="carouselOne" class="carousel slide-mt-5" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carouselOne" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#carouselOne" data-bs-slide-to="1"></li>
+          <li data-bs-target="#carouselOne" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item bg_cover active" style="
                background-image: url(../assets/carousel/slider_1.jpg);
 
                ">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-xl-6 col-lg-7 col-sm-10">
-                                    <h2 class="carousel-title">
-                                        Toko Buah Rizal
-                                    </h2>
-                                    <ul class="carousel-btn rounded-buttons">
-                                        <li>
-                                            <a class="btn primary-btn rounded-full" href="javascript:void(0)">
-                                                GET STARTED
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="btn primary-btn-outline rounded-full" href="javascript:void(0)">
-                                                EXPLORE
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- row -->
-                        </div>
-                        <!-- container -->
-                    </div>
-                    <!-- carousel caption -->
+            <div class="carousel-caption">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-xl-6 col-lg-7 col-sm-10">
+                    <h2 class="carousel-title">
+                      Toko Buah Rizal
+                    </h2>
+                    <ul class="carousel-btn rounded-buttons">
+                      
+                    </ul>
+                  </div>
                 </div>
-                <!-- carousel-item -->
-                <div class="carousel-item bg_cover" style="
-               background-image: url(../assets/carousel/slider_2.jpg);
-               ">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-xl-6 col-lg-7 col-sm-10">
-                                    <h2 class="carousel-title">
-                                        Untuk Anda yang lebih sehat
-                                    </h2>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- row -->
-                        </div>
-                        <!-- container -->
-                    </div>
-                    <!-- carousel caption -->
-                </div>
-                <!-- carousel-item -->
-                <div class="carousel-item bg_cover" style="
-               background-image: url(../assets/carousel/slider_2.jpg);
-               ">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-xl-6 col-lg-7 col-sm-10">
-                                    <h2 class="carousel-title">
-                                        Panjang umur, makan buah
-                                    </h2>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- row -->
-                        </div>
-                        <!-- container -->
-                    </div>
-                    <!-- carousel caption -->
-                </div>
-                <!-- carousel-item -->
+                <!-- row -->
+              </div>
+              <!-- container -->
             </div>
-            <!-- carousel-inner -->
-            <a class="carousel-control-prev" href="#carouselOne" role="button" data-bs-slide="prev">
-                <i class="lni lni-chevron-left"></i>
-            </a>
-            <a class="carousel-control-next" href="#carouselOne" role="button" data-bs-slide="next">
-                <i class="lni lni-chevron-right"></i>
-            </a>
+            <!-- carousel caption -->
+          </div>
+          <!-- carousel-item -->
+          <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="./assets/img/banner_1.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>Toko Buah</b> Rizal</h1>
+                                <h3 class="h2">Menyediakan Buah Segar</h3>
+                                <p>
+                                    Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1). 
+                                    This template is 100% free provided by <a rel="sponsored" class="text-success" href="https://templatemo.com" target="_blank">TemplateMo</a> website. 
+                                    Image credits go to <a rel="sponsored" class="text-success" href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,
+                                    <a rel="sponsored" class="text-success" href="https://unsplash.com/" target="_blank">Unsplash</a> and
+                                    <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons 8</a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">Proident occaecat</h1>
+                                <h3 class="h2">Aliquip ex ea commodo consequat</h3>
+                                <p>
+                                    You are permitted to use this Zay CSS template for your commercial websites. 
+                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">Repr in voluptate</h1>
+                                <h3 class="h2">Ullamco laboris nisi ut </h3>
+                                <p>
+                                    We bring you 100% free CSS templates for your websites. 
+                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- carousel -->
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </a>
     </div>
-    <!-- bd-example -->
-</section>
-<!--====== SLIDER ONE PART ENDS ======-->
-<!--====== ABOUT ONE PART START ======-->
-<section id="home-component" class="about-area about-one">
-    <div class="container">
+    <!-- End Banner Hero -->
+
+
+    <!-- Start Categories of The Month -->
+    <section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Categories of The Month</h1>
+                <p>
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
         <div class="row">
-            <div class="col-lg-12">
-                <div class="about-title text-center">
-                    <h2 class="title fw-bold">Kenapa Memilih Kami</h2>
-                </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
+                <h5 class="text-center mt-3 mb-3">Watches</h5>
+                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="./assets/img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
+                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="./assets/img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
+                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
             </div>
         </div>
-        <!-- row -->
-        <div class="row justify-content-center">
-            <div class="col-md-4 col-sm-8">
-                <div class="single-about-items">
-                    <div class="items-icon">
-                        <i class="lni lni-bullhorn"></i>
-                    </div>
-                    <div class="items-content">
-                        <h4 class="items-title">Selalu Segar</h4>
-                        <p class="text">
-                            Dipetik langsung dari kebun
-                        </p>
-                    </div>
-                </div>
-                <!-- single about items -->
-            </div>
-            <div class="col-md-4 col-sm-8">
-                <div class="single-about-items">
-                    <div class="items-icon">
-                        <i class="lni lni-investment"></i>
-                    </div>
-                    <div class="items-content">
-                        <h4 class="items-title">Kualitas Terbaik</h4>
-                        <p class="text">
-                            Kualitas dari pertanian terbaik
-                    </div>
-                </div>
-                <!-- single about items -->
-            </div>
-            <div class="col-md-4 col-sm-8">
-                <div class="single-about-items">
-                    <div class="items-icon">
-                        <i class="lni lni-handshake"></i>
-                    </div>
-                    <div class="items-content">
-                        <h4 class="items-title">Bantuan</h4>
-                        <p class="text">
-                            Bantuan 24/7 selalu online
-                        </p>
-                    </div>
-                </div>
-                <!-- single about items -->
-            </div>
-        </div>
-        <!-- row -->
-    </div>
+    </section>
+  <!--====== SLIDER ONE PART ENDS ======-->
+  <!--====== ABOUT ONE PART START ======-->
+  
     <!-- container -->
-</section>
-<!--====== ABOUT ONE PART ENDS ======-->
-<!--====== CARD PART START ======-->
-<section id="home-component" class="card-area pb-5 overflow-x-hidden overflow-hidden">
-    <div class="row mb-4">
-        <div class="col-lg-12">
-            <div class="about-title text-center">
-                <h2 class="title fw-bold">Produk Terbaru</h2>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-7 col-sm-9">
-                <div class="single-card card-style-one">
-                    <div class="card-image">
-                        <img alt="Image" src="/assets/img/mangga.jpg">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">
-                            <a href="/product">Mangga</a>
-                        </h4>
-                        <p class="text">
-                            Rp. 20.000,00
-                        </p>
-                    </div>
-                </div>
-                <!-- single-card -->
-            </div>
-            <!-- col -->
-            <div class="col-lg-4 col-md-7 col-sm-9">
-                <div class="single-card card-style-one">
-                    <div class="card-image">
-                        <img src="/assets/img/anggur.jpg" alt="Image" />
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">
-                            <a href="javascript:void(0)">Anggur</a>
-                        </h4>
-                        <p class="text">
-                            Rp. 38.000,00
-                        </p>
-                    </div>
-                </div>
-                <!-- single-card -->
-            </div>
-            <!-- col -->
-            <div class="col-lg-4 col-md-7 col-sm-9">
-                <div class="single-card card-style-one">
-                    <div class="card-image">
-                        <img src="/assets/img/melon.jpg" alt="Image" />
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">
-                            <a href="javascript:void(0)">Melon</a>
-                        </h4>
-                        <p class="text">
-                            Rp. 31.000,00
-                        </p>
-                    </div>
-                </div>
-                <!-- single-card -->
-            </div>
-            <!-- col -->
-        </div>
-        <!-- row -->
-    </div>
-    <!-- container -->
-</section>
-<!--====== CARD PART ENDS ======-->
-<?= $this->endsection("content") ?>
+  </section>
+  <!--====== ABOUT ONE PART ENDS ======-->
+  <!--====== CARD PART START ======-->
 
-<script>
-    //===== close navbar-collapse when a  clicked
-    let navbarTogglerOne = document.querySelector(
-        ".navbar-one .navbar-toggler"
-    );
-    navbarTogglerOne.addEventListener("click", function() {
-        navbarTogglerOne.classList.toggle("active");
-    });
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <!--====== CARD PART ENDS ======-->
+</body>

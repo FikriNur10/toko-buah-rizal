@@ -2,75 +2,86 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="../assets/css/home-style.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/navbar.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
-    <!--====== Bootstrap CSS ======-->
-    <link rel="stylesheet" href="https://cdn.ayroui.com/1.0/css/bootstrap.min.css" />
-    <!--====== Lineicons CSS ======-->
-    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet" />
-    <!--====== Style css ======-->
-    <link rel="stylesheet" href="https://cdn.ayroui.com/1.0/css/starter.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-</head>
-<!--====== NAVBAR ONE PART START ======-->
-<nav class="navbar-area sticky-top navbar-one">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <nav class="navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="/home">
-                        <img src="/assets/img/logo_navbar.png" alt="Logo" />
+<title>Toko Buah Rizal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+
+    <!-- Logo Url -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Logo Url -->
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <!-- CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<body>
+    
+
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h2 align-self-center" href="index.php">
+                Toko Buah Rizal
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <a class="nav-icon position-relative text-decoration-none" href="cart">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="toggler-icon"></span>
-                        <span class="toggler-icon"></span>
-                        <span class="toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
-                        <ul class="navbar-nav m-auto">
-                            <li class="nav-item">
-                                <a href="javascript:void(0)">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="javascript:void(0)">Product</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="javascript:void(0)">Support</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <?php if (session()->has('isLoggedIn')) { ?>
-                        <div class="navbar-btn d-none d-sm-inline-block">
-                            <ul>
-                                <li>
-                                    <a class="btn primary-btn-outline" href="/dashboard">Dashboard</a>
-                                </li>
-                            </ul>
-                        </div>
-                    <?php } else { ?>
-                        <div class="navbar-btn d-none d-sm-inline-block">
-                            <ul>
-                                <li>
-                                    <a class="btn primary-btn-outline" href="/login">Sign In</a>
-                                </li>
-                            </ul>
-                        </div>
-                    <?php } ?>
-                </nav>
-                <!-- navbar -->
+                    <a class="nav-icon position-relative text-decoration-none" href="login">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+              
+                    </a>
+                </div>
             </div>
+
         </div>
-        <!-- row -->
-    </div>
-    <!-- container -->
-</nav>
-<!--====== NAVBAR ONE PART ENDS ======-->
+    </nav>
+    <!-- Close Header -->
+
+  <!--====== Bootstrap js ======-->
+  <script src="https://cdn.ayroui.com/1.0/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    //===== close navbar-collapse when a  clicked
+    let navbarTogglerOne = document.querySelector(
+      ".navbar-one .navbar-toggler"
+    );
+    navbarTogglerOne.addEventListener("click", function() {
+      navbarTogglerOne.classList.toggle("active");
+    });
+  </script>
+  <!-- Akhir Navbar -->

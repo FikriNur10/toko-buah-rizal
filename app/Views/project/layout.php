@@ -20,5 +20,6 @@
 </head>
    <body>
       <?= $this->renderSection("content"); ?>
+      <?= $this->include("components/footer") ?>
    <body>
 </html>

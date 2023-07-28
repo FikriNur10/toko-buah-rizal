@@ -48,6 +48,12 @@ $routes->get('/dashboard/tambahproduk','Admin::tambahProduk',['filter' => 'authF
 $routes->get('/dashboard/transaksi','Admin::daftarTransaksi',['filter' => 'authFilter']);
 $routes->get('/dashboard/user','Admin::daftarUser',['filter' => 'authFilter']);
 
+//test
+$routes->get('/shop', 'Home::shop');
+$routes->get('/about', 'Home::about');
+$routes->get('/contact', 'Home::contact');
+$routes->get('/cart', 'Home::cart');
+$routes->get('/shop_single', 'Home::shop_single');
 
 
 
