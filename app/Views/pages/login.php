@@ -1,8 +1,9 @@
 <?=$this->extend("project/layout")?>
   
 <?=$this->section("content")?>
-  
-<div class="container">
+<link rel="stylesheet" href="assets/css/login.css"> 
+
+<div class="container ">
     <div class="row justify-content-md-center mt-5">
         <div class="col-4">
             <div class="card">

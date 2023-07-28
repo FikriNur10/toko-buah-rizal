@@ -1,8 +1,8 @@
 :root {
+  --blue: #1e90ff;
   --white: #ffffff;
   --green: #263a29;
 }
-
 /* ===== Buttons Css ===== */
 .slider-one .bd-example .carousel .carousel-inner .carousel-item .carousel-caption .carousel-btn li .primary-btn {
   background: var(--green);
@@ -40,7 +40,7 @@
 
 /*===== SLIDER ONE =====*/
 .slider-one .bd-example .carousel .carousel-inner {
-  background-color: var(--white);
+  background-color: var(--primary);
 }
 .slider-one .bd-example .carousel .carousel-inner .carousel-item {
   height: auto;
