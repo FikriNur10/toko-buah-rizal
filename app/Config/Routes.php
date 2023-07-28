@@ -47,8 +47,7 @@ $routes->get('/dashboard/konfirmasi', 'Admin::konfirmasi', ['filter' => 'authFil
 $routes->get('/dashboard/tambahproduk','Admin::tambahProduk',['filter' => 'authFilter']);
 $routes->get('/dashboard/transaksi','Admin::daftarTransaksi',['filter' => 'authFilter']);
 $routes->get('/dashboard/user','Admin::daftarUser',['filter' => 'authFilter']);
-
-
+$routes->post('/dashboard/tambahproduk/store','ProdukController::store',['filter' => 'authFilter']);
 
 
 /*

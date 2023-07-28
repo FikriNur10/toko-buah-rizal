@@ -223,6 +223,7 @@
     </div>
     <!-- container -->
 </section>
+
 <!--====== CARD PART ENDS ======-->
 <?= $this->endsection("content") ?>
 

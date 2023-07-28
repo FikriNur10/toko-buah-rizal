@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use App\Models\Produk;
 class Admin extends BaseController
 {
     // for AdminController
@@ -11,10 +12,13 @@ class Admin extends BaseController
         $data = [
             'title' => 'Product'
         ];
+
+        $productModel = new Produk();
+        $dataProduct['product'] = $productModel->findAll();
         echo view('components/admin/A_header',$data);
         echo view('components/admin/A_sidebar');
         echo view('components/admin/A_topbar', $data);
-        echo view('components/admin/A_produkDash');
+        echo view('components/admin/A_produkDash',$dataProduct);       
         echo view('components/admin/A_footer');
     }
     
@@ -33,11 +37,13 @@ class Admin extends BaseController
         $data = [
             'title' => 'Tambah Data'
         ];
+        
         echo view('components/admin/A_header',$data);
         echo view('components/admin/A_sidebar');
         echo view('components/admin/A_topbar', $data);
         echo view('components/admin/A_addProduk');
         echo view('components/admin/A_footer');
+
     }
 
     public function daftarTransaksi(){
@@ -57,6 +63,7 @@ class Admin extends BaseController
         ];
         $userModel = new UserModel();
         $dataUser['users'] = $userModel->findAll();
+
         echo view('components/admin/A_header',$data);
         echo view('components/admin/A_sidebar');
         echo view('components/admin/A_topbar', $data);

@@ -4,41 +4,28 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Product extends Migration
+class Cart extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'product_id' => [
+            'cart_id' => [
                 'type' => 'BIGINT',
                 'constraint' => 10,
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'product_code' => [
-                'type' => 'VARCHAR',
+            'user_id' => [
+                'type' => 'INT',
                 'constraint' => 10,
-                'unique' => true,
             ],
             'product_name' => [
                 'type' => 'VARCHAR',
-                'constraint' => 100,
-            ],
-            'product_price' => [
-                'type' => 'INT',
-                'constraint' => 100,
-            ],
-            'product_description' => [
-                'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'product_stock' => [
+            'cart_qty' => [
                 'type' => 'INT',
-                'constraint' => 12,
-            ],
-            'product_image' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
+                'constraint' => 10,
             ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
@@ -47,14 +34,14 @@ class Product extends Migration
             'updated_at' => [
                 'type' => 'TIMESTAMP',
                 'null' => true,
-            ],
+            ]
         ]);
-        $this->forge->addKey('product_code', true);
-        $this->forge->createTable('product');
+        $this->forge->addKey('cart_id', true);
+        $this->forge->createTable('cart');
     }
 
     public function down()
     {
-        $this->forge->dropTable('product');
+        $this->forge->dropTable('cart');
     }
 }
