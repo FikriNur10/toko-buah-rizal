@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Toko Buah Rizal</title>
+    <title>Toko Buah Rizal</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,7 +25,7 @@
 
 
 <body>
-    
+
 
 
     <!-- Header -->
@@ -58,12 +58,14 @@
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
-                    <a class="nav-icon position-relative text-decoration-none" href="cart">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                    </a>
+                    <?php if (isset($_SESSION['isLoggedIn']) == TRUE): ?>
+                        <a class="nav-icon position-relative text-decoration-none" href="cart">
+                            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        </a>
+                    <?php endif ?>
                     <a class="nav-icon position-relative text-decoration-none" href="login">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
-              
+
                     </a>
                 </div>
             </div>
@@ -72,16 +74,16 @@
     </nav>
     <!-- Close Header -->
 
-  <!--====== Bootstrap js ======-->
-  <script src="https://cdn.ayroui.com/1.0/js/bootstrap.bundle.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="https://cdn.ayroui.com/1.0/js/bootstrap.bundle.min.js"></script>
 
-  <script>
-    //===== close navbar-collapse when a  clicked
-    let navbarTogglerOne = document.querySelector(
-      ".navbar-one .navbar-toggler"
-    );
-    navbarTogglerOne.addEventListener("click", function() {
-      navbarTogglerOne.classList.toggle("active");
-    });
-  </script>
-  <!-- Akhir Navbar -->
+    <script>
+        //===== close navbar-collapse when a  clicked
+        let navbarTogglerOne = document.querySelector(
+            ".navbar-one .navbar-toggler"
+        );
+        navbarTogglerOne.addEventListener("click", function() {
+            navbarTogglerOne.classList.toggle("active");
+        });
+    </script>
+    <!-- Akhir Navbar -->

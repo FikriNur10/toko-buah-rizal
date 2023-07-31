@@ -20,7 +20,7 @@ class Dashboard extends BaseController
             $data = [
                 'title' => 'Dashboard'
             ];
-            echo view('components/user/U_header',$data);
+            echo view('components/admin/A_header',$data);
             echo view('components/admin/A_sidebar');
             echo view('components/admin/A_topbar', $data);
             echo view('components/admin/A_orderDash');

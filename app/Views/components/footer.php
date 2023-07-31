@@ -1,28 +1,7 @@
-<<<<<<< HEAD
-<!-- Awal footer-->
-<footer class="bg-light p-5 mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h1>Toko Buah Rizal</h1>
-                <div class="col-md-6">
-                    <span>Created with love by <a href="" class="text-decoration-none text-dark fw-bold">Ahmad Zarkasih</a></span>
-                    <div class="col">
-                        <a href="" class="text-decoration-none">
-                            <img src="../assets/sosmed/instagram.png" style="width: 30px;">
-                        </a>
-                        <a href="" class="text-decoration-none">
-                            <img src="../assets/sosmed/facebook.png" style="width: 30px;">
-                        </a>
-                        <a href="" class="text-decoration-none">
-                            <img src="../assets/sosmed/twitter.png" style="width: 30px;">
-                        </a>
-=======
 <!-- Start Footer -->
 <footer class="bg-dark" id="tempaltemo_footer">
         <div class="container">
             <div class="row">
->>>>>>> d84e431214a30fde5ca5d923c70a19e86f5b2df2
 
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-success border-bottom pb-3 border-light logo">Zay Shop</h2>
@@ -95,10 +74,6 @@
                         <div class="input-group-text btn-success text-light">Subscribe</div>
                     </div>
                 </div>
-<<<<<<< HEAD
-</footer>
-<!-- akhir footer -->
-=======
             </div>
         </div>
 
@@ -128,4 +103,3 @@
 </body>
 
 </html>
->>>>>>> d84e431214a30fde5ca5d923c70a19e86f5b2df2

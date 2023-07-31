@@ -47,18 +47,7 @@ $routes->get('/dashboard/konfirmasi', 'Admin::konfirmasi', ['filter' => 'authFil
 $routes->get('/dashboard/tambahproduk','Admin::tambahProduk',['filter' => 'authFilter']);
 $routes->get('/dashboard/transaksi','Admin::daftarTransaksi',['filter' => 'authFilter']);
 $routes->get('/dashboard/user','Admin::daftarUser',['filter' => 'authFilter']);
-<<<<<<< HEAD
-$routes->post('/dashboard/tambahproduk/store','ProdukController::store',['filter' => 'authFilter']);
-=======
 
-//test
-$routes->get('/shop', 'Home::shop');
-$routes->get('/about', 'Home::about');
-$routes->get('/contact', 'Home::contact');
-$routes->get('/cart', 'Home::cart');
-$routes->get('/shop_single', 'Home::shop_single');
-
->>>>>>> d84e431214a30fde5ca5d923c70a19e86f5b2df2
 
 
 /*

@@ -110,8 +110,6 @@
         </a>
     </div>
     <!-- End Banner Hero -->
-
-
     <!-- Start Categories of The Month -->
     <section class="container py-5">
         <div class="row text-center pt-3">
@@ -145,84 +143,9 @@
   <!--====== ABOUT ONE PART START ======-->
   
     <!-- container -->
-<<<<<<< HEAD
-</section>
-<!--====== ABOUT ONE PART ENDS ======-->
-<!--====== CARD PART START ======-->
-<section id="home-component" class="card-area pb-5 overflow-x-hidden overflow-hidden">
-    <div class="row mb-4">
-        <div class="col-lg-12">
-            <div class="about-title text-center">
-                <h2 class="title fw-bold">Produk Terbaru</h2>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-7 col-sm-9">
-                <div class="single-card card-style-one">
-                    <div class="card-image">
-                        <img alt="Image" src="/assets/img/mangga.jpg">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">
-                            <a href="/product">Mangga</a>
-                        </h4>
-                        <p class="text">
-                            Rp. 20.000,00
-                        </p>
-                    </div>
-                </div>
-                <!-- single-card -->
-            </div>
-            <!-- col -->
-            <div class="col-lg-4 col-md-7 col-sm-9">
-                <div class="single-card card-style-one">
-                    <div class="card-image">
-                        <img src="/assets/img/anggur.jpg" alt="Image" />
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">
-                            <a href="javascript:void(0)">Anggur</a>
-                        </h4>
-                        <p class="text">
-                            Rp. 38.000,00
-                        </p>
-                    </div>
-                </div>
-                <!-- single-card -->
-            </div>
-            <!-- col -->
-            <div class="col-lg-4 col-md-7 col-sm-9">
-                <div class="single-card card-style-one">
-                    <div class="card-image">
-                        <img src="/assets/img/melon.jpg" alt="Image" />
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">
-                            <a href="javascript:void(0)">Melon</a>
-                        </h4>
-                        <p class="text">
-                            Rp. 31.000,00
-                        </p>
-                    </div>
-                </div>
-                <!-- single-card -->
-            </div>
-            <!-- col -->
-        </div>
-        <!-- row -->
-    </div>
-    <!-- container -->
-</section>
-
-<!--====== CARD PART ENDS ======-->
-<?= $this->endsection("content") ?>
-=======
   </section>
   <!--====== ABOUT ONE PART ENDS ======-->
   <!--====== CARD PART START ======-->
->>>>>>> d84e431214a30fde5ca5d923c70a19e86f5b2df2
 
   <!--====== CARD PART ENDS ======-->
 </body>

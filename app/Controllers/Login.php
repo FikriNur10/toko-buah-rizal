@@ -41,7 +41,7 @@ class Login extends BaseController
         ];
  
         $session->set($ses_data);
-        return redirect()->to('/');
+        return redirect()->to('/dashboard');
          
         
     }
