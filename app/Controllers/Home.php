@@ -49,5 +49,10 @@ class Home extends BaseController
     {   
         echo view('components/navbar');
         echo view('pages/shop_single');
+
+    } public function confirm_payment()
+    {   
+        echo view('components/navbar');
+        echo view('pages/confirm_payment');
     }
 }

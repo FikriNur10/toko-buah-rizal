@@ -54,6 +54,7 @@ $routes->get('/about', 'Home::about');
 $routes->get('/contact', 'Home::contact');
 $routes->get('/cart', 'Home::cart');
 $routes->get('/shop_single', 'Home::shop_single');
+$routes->get('/payment', 'Home::confirm_payment');
 
 
 
