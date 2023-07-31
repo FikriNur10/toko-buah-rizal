@@ -74,6 +74,7 @@
                         <div class="input-group-text btn-success text-light">Subscribe</div>
                     </div>
                 </div>
+>>>>>>> f2e7132254adbf2d60aa49b4339db3a742097b86
             </div>
         </div>
 

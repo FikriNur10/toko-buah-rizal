@@ -1,17 +1,14 @@
 <?php
 
 namespace App\Controllers;
-use App\Controllers\Login;
+
 class Home extends BaseController
 {
     public function index()
     {   
         $data = [
-            'title' => 'Home | Toko Buah Rizal',
-            'Session' => session()->get('isLoggedIn'),
+            'title' => 'Home | Toko Buah Rizal'
         ];
-        
-        
         echo view('components/navbar', $data);
         return view('index');
         echo view('components/footer');
@@ -52,5 +49,10 @@ class Home extends BaseController
     {   
         echo view('components/navbar');
         echo view('pages/shop_single');
+
+    } public function confirm_payment()
+    {   
+        echo view('components/navbar');
+        echo view('pages/confirm_payment');
     }
 }

@@ -21,8 +21,7 @@
         <div class="col-md-6 m-auto text-center">
             <h1 class="h1">Contact Us</h1>
             <p>
-                Proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet.
+              
             </p>
         </div>
     </div>
@@ -48,10 +47,10 @@
                     <label for="inputmessage">Message</label>
                     <textarea class="form-control mt-1" id="message" name="message" placeholder="Message" rows="8"></textarea>
                 </div>
-                <div class="row">
-                    <div class="col text-end mt-2">
-                        <button type="submit" class="btn btn-success btn-lg px-3">Let’s Talk</button>
-                    </div>
+
+                <div class="d-grid gap-2 col-3 mx-auto">
+                 <button class="btn btn-success btn-lg" type="button">Kirim</button>
+
                 </div>
             </form>
         </div>
