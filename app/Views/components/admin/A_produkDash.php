@@ -9,19 +9,21 @@
       </div>
       <!-- Content Row -->
       <div class="row">
-
           <!-- Earnings (Monthly) Card Example -->
           <div class="row row-cols-1 row-cols-md-4 g-4">
+              <?php foreach ($product as $productItem): ?>
               <div class="col">
                   <div class="card">
                       <img src="/assets/img/anggur.jpg" class="card-img-top" alt="Hollywood Sign on The Hill" />
                       <div class="card-body">
-                          <h5 class="card-title">Anggur</h5>
-                          <p class="card-text">1 Kg / Rp. 38.000,00</p>
+                          <h5 class="card-title"><?php echo $productItem['product_name']; ?></h5>
+                          <p class="card-text"><?php echo $productItem['product_price']; ?></p>
                           <a href="#" class="btn btn-primary">Edit</a>
-                          <a href="#" class="btn btn-danger">Hapus</a>
+                          <a href="/dashboard/produk/<?php echo $productItem['product_code']; ?>/delete" class="btn btn-danger">Hapus</a>
                       </div>
                   </div>
-              </div>
+                </div>
+                <?php endforeach; ?>
           </div>
+    
           <!-- End of Main Content -->

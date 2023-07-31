@@ -1,7 +1,28 @@
+<<<<<<< HEAD
+<!-- Awal footer-->
+<footer class="bg-light p-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Toko Buah Rizal</h1>
+                <div class="col-md-6">
+                    <span>Created with love by <a href="" class="text-decoration-none text-dark fw-bold">Ahmad Zarkasih</a></span>
+                    <div class="col">
+                        <a href="" class="text-decoration-none">
+                            <img src="../assets/sosmed/instagram.png" style="width: 30px;">
+                        </a>
+                        <a href="" class="text-decoration-none">
+                            <img src="../assets/sosmed/facebook.png" style="width: 30px;">
+                        </a>
+                        <a href="" class="text-decoration-none">
+                            <img src="../assets/sosmed/twitter.png" style="width: 30px;">
+                        </a>
+=======
 <!-- Start Footer -->
 <footer class="bg-dark" id="tempaltemo_footer">
         <div class="container">
             <div class="row">
+>>>>>>> d84e431214a30fde5ca5d923c70a19e86f5b2df2
 
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-success border-bottom pb-3 border-light logo">Toko Buah Rizal</h2>
@@ -58,7 +79,21 @@
                         
                     </ul>
                 </div>
+<<<<<<< HEAD
                
+=======
+                <div class="col-auto">
+                    <label class="sr-only" for="subscribeEmail">Email address</label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                        <div class="input-group-text btn-success text-light">Subscribe</div>
+                    </div>
+                </div>
+<<<<<<< HEAD
+</footer>
+<!-- akhir footer -->
+=======
+>>>>>>> f2e7132254adbf2d60aa49b4339db3a742097b86
             </div>
         </div>
 
@@ -85,3 +120,4 @@
 </body>
 
 </html>
+>>>>>>> d84e431214a30fde5ca5d923c70a19e86f5b2df2
