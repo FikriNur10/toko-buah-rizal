@@ -20,43 +20,82 @@
 
 </head>
 
+</html>
+
+<!-- PENGHUBUNG SURGA -->
+
+<?= $this->extend("project/layout") ?>
+
+<?= $this->section("content") ?>
 <section class="gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
+  <div class="container py-4">
+    <div class="row d-flex justify-content-center align-items-center">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card bg-success text-white" style="border-radius: 1rem;">
-          <div class="card-body p-5 ">
-            <div class="mb-md-5 mt-md-4 pb-5">
-
-              <h2 class="fw-bold mb-2 text-uppercase">Daftar Akun</h2>
-              <form action="<?php echo base_url('/register'); ?>" method="post">
-              <div class="row row-cols-2">
-              <div class="form-outline form-white mb-4 ">
-              <label class="form-label" for="username">Username</label> 
-                <input type="text" id="username" class="form-control form-control-lg" />
+          <div class="card-body px-4 py-5">
+            <h2 class="fw-bold mb-2 text-uppercase text-white">Daftar Akun</h2>
+            <form action="<?php echo base_url('/register'); ?>" method="post">
+              <div class="row row-cols-1">
+                <div class="form-outline form-white mb-3 ">
+                  <label class="form-label" for="name">Name</label>
+                  <input type="text" id="name" name="name" value="<?= set_value('name') ?>" class="form-control form-control-sm" />
+                  <?php if (isset($validation)) : ?>
+                    <small class="text-danger"><?= $validation->getError('name') ?></small>
+                  <?php endif; ?>
+                </div>
+                <div class="form-outline form-white mb-3">
+                  <label class="form-label" for="email">Email</label>
+                  <input type="email" id="email" name="email" value="<?= set_value('email') ?>" class="form-control form-control-sm" />
+                  <?php if (isset($validation)) : ?>
+                    <small class="text-danger"><?= $validation->getError('email') ?></small>
+                  <?php endif; ?>
+                </div>
               </div>
-              <div class="form-outline form-white mb-4">
-              <label class="form-label" for="password">Password</label>
-                <input type="password" id="password" class="form-control form-control-lg" />
+              <div class="row row-cols-1">
+                <div class="form-outline form-white mb-3">
+                  <label class="form-label" for="phone">Nomer Telepon</label>
+                  <input type="tel" id="phone" name="phone" value="<?= set_value('phone') ?>" class="form-control form-control-sm" />
+                  <?php if (isset($validation)) : ?>
+                    <small class="text-danger"><?= $validation->getError('phone') ?></small>
+                  <?php endif; ?>
+                </div>
+                <div class="form-outline form-white mb-3">
+                  <label for="address" class="form-label">Address</label>
+                  <textarea class="form-control" id="address" name="address"><?= set_value('address') ?></textarea>
+                  <?php if (isset($validation)) : ?>
+                    <small class="text-danger"><?= $validation->getError('address') ?></small>
+                  <?php endif; ?>
+                </div>
               </div>
+              <div class="form-outline form-white mb-3">
+                <div class="form-outline form-white mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control form-control-sm" id="password" name="password">
+                  <?php if (isset($validation)) : ?>
+                    <small class="text-danger"><?= $validation->getError('password') ?></small>
+                  <?php endif; ?>
+                </div>
+                <div class="form-outline form-white mb-3">
+                  <label for="confirm_password" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control  form-control-sm" id="confirm_password" name="confirm_password">
+                  <?php if (isset($validation)) : ?>
+                    <small class="text-danger"><?= $validation->getError('confirm_password') ?></small>
+                  <?php endif; ?>
+                </div>
               </div>
-              <div class="row row-cols-2">
-              <div class="form-outline form-white mb-4">
-              <label class="form-label" for="email">Email</label>
-                <input type="email" id="email" class="form-control form-control-lg" />
+              <div class="mb-3" hidden>
+                <label for="role" class="form-label">Role</label>
+                <input type="text" class="form-control" id="role" name="role" value="user">
+                <?php if (isset($validation)) : ?>
+                  <small class="text-danger"><?= $validation->getError('role') ?></small>
+                <?php endif; ?>
               </div>
-              <div class="form-outline form-white mb-4">
-              <label class="form-label" for="notlp">Nomer Telepon</label>
-                <input type="text" id="notlp" class="form-control form-control-lg" />
+              <div class="d-grid gap-2 py-3">
+                <button class="btn text-white" type="submit" style="
+                background-color: #005E00;
+                " ;>Register</button>
               </div>
-              </div>
-              <div class="form-outline form-white mb-4">
-              <label class="form-label" for="alamat">Alamat</label>
-                <input type="text" id="alamat" class="form-control form-control-lg" />
-              </div>
-              <button class="btn btn-outline-light btn-lg px-5" type="submit">Daftar</button>
-            </div>
-
+            </form>
           </div>
         </div>
       </div>
@@ -65,84 +104,76 @@
 </section>
 <!--====== SIGNIN ONE PART ENDS ======-->
 <!-- Bootstrap core JavaScript-->
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<?= $this->endSection() ?>
 
 
-</html>
 
-<!-- PENGHUBUNG SURGA -->
-
-<?=$this->extend("project/layout")?>
-  
-<?=$this->section("content")?>
 <div class="container">
-    <div class="row justify-content-md-center mt-5">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title mb-4">Register</h5>
-                    <form action="<?php echo base_url('/register'); ?>" method="post">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="name" name="name" value="<?= set_value('name') ?>">
-                            <?php if(isset($validation)):?>
-                                <small class="text-danger"><?= $validation->getError('name') ?></small>
-                            <?php endif;?>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" name="email" value="<?= set_value('email') ?>">
-                            <?php if(isset($validation)):?>
-                                <small class="text-danger"><?= $validation->getError('email') ?></small>
-                            <?php endif;?>
-                        </div>
-                        <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
-                            <textarea class="form-control" id="address" name="address"><?= set_value('address') ?></textarea>
-                            <?php if(isset($validation)):?>
-                                <small class="text-danger"><?= $validation->getError('address') ?></small>
-                            <?php endif;?>
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Phone</label>
-                            <input type="number" class="form-control" id="phone" name="phone" value="<?= set_value('phone') ?>">
-                            <?php if(isset($validation)):?>
-                                <small class="text-danger"><?= $validation->getError('phone') ?></small>
-                            <?php endif;?>
-                        </div>
-                        <div class="mb-3" hidden>
-                            <label for="role" class="form-label">Role</label>
-                            <input type="text" class="form-control" id="role" name="role" value="user">
-                            <?php if(isset($validation)):?>
-                                <small class="text-danger"><?= $validation->getError('role') ?></small>
-                            <?php endif;?>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password">
-                            <?php if(isset($validation)):?>
-                                <small class="text-danger"><?= $validation->getError('password') ?></small>
-                            <?php endif;?>
-                        </div>
-                        <div class="mb-3">
-                            <label for="confirm_password" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm_password" name="confirm_password">
-                            <?php if(isset($validation)):?>
-                                <small class="text-danger"><?= $validation->getError('confirm_password') ?></small>
-                            <?php endif;?>
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary btn-block">Register Now</button>
-                            <p class="text-center">Have already an account <a href="<?php echo base_url('/login'); ?>">Login here</a><p>
-                        </div>
-                    </form>
-                </div>
+  <div class="row justify-content-md-center mt-5">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-4">Register</h5>
+          <form action="<?php echo base_url('/register'); ?>" method="post">
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" name="name" value="<?= set_value('name') ?>">
+              <?php if (isset($validation)) : ?>
+                <small class="text-danger"><?= $validation->getError('name') ?></small>
+              <?php endif; ?>
             </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" value="<?= set_value('email') ?>">
+              <?php if (isset($validation)) : ?>
+                <small class="text-danger"><?= $validation->getError('email') ?></small>
+              <?php endif; ?>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <textarea class="form-control" id="address" name="address"><?= set_value('address') ?></textarea>
+              <?php if (isset($validation)) : ?>
+                <small class="text-danger"><?= $validation->getError('address') ?></small>
+              <?php endif; ?>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="number" class="form-control" id="phone" name="phone" value="<?= set_value('phone') ?>">
+              <?php if (isset($validation)) : ?>
+                <small class="text-danger"><?= $validation->getError('phone') ?></small>
+              <?php endif; ?>
+            </div>
+            <div class="mb-3" hidden>
+              <label for="role" class="form-label">Role</label>
+              <input type="text" class="form-control" id="role" name="role" value="user">
+              <?php if (isset($validation)) : ?>
+                <small class="text-danger"><?= $validation->getError('role') ?></small>
+              <?php endif; ?>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password">
+              <?php if (isset($validation)) : ?>
+                <small class="text-danger"><?= $validation->getError('password') ?></small>
+              <?php endif; ?>
+            </div>
+            <div class="mb-3">
+              <label for="confirm_password" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+              <?php if (isset($validation)) : ?>
+                <small class="text-danger"><?= $validation->getError('confirm_password') ?></small>
+              <?php endif; ?>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary btn-block">Register Now</button>
+              <p class="text-center">Have already an account <a href="<?php echo base_url('/login'); ?>">Login here</a>
+              <p>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-     
+  </div>
+
 </div>
-  
-<?=$this->endSection()?>

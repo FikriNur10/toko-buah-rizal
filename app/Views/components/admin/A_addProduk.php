@@ -1,10 +1,12 @@
-<<<<<<< HEAD
-
 
 <body>
   <div class="container mt-4">
     <h2>Tambah Product</h2>
-    <form enctype="multipart/form-data">
+    <?php if (session()->has('success')) : ?>
+    <p><?= session('success'); ?></p>
+  <?php endif; ?>
+    <form method="post" action="/dashboard/tambahproduk/store">
+    <?= csrf_field(); ?>
       <div class="form-group mt-5">
         <label for="product_name">Nama Produk:</label>
         <input type="text" class="form-control" id="productName" placeholder="Masukkan Nama Product" required>
@@ -28,7 +30,6 @@
   
 
 
-=======
 <div class="container-fluid">
   <h1>Add New Product</h1>
   <?php if (session()->has('success')) : ?>
@@ -57,4 +58,3 @@
     <button type="submit">Submit</button>
   </form>
 </div>
->>>>>>> f2e7132254adbf2d60aa49b4339db3a742097b86
