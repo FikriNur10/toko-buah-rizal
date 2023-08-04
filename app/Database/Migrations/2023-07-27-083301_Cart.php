@@ -9,7 +9,7 @@ class Cart extends Migration
     public function up()
     {
         $this->forge->addField([
-            'cart_id' => [
+            'id' => [
                 'type' => 'BIGINT',
                 'constraint' => 10,
                 'unsigned' => true,
@@ -19,11 +19,11 @@ class Cart extends Migration
                 'type' => 'INT',
                 'constraint' => 10,
             ],
-            'product_name' => [
+            'produk_code' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'cart_qty' => [
+            'quantity' => [
                 'type' => 'INT',
                 'constraint' => 10,
             ],
@@ -36,7 +36,8 @@ class Cart extends Migration
                 'null' => true,
             ]
         ]);
-        $this->forge->addKey('cart_id', true);
+        $this->forge->addKey('id');
+        $this->forge->addForeignKey('produk_code', 'produk', 'produk_code', 'CASCADE', 'CASCADE');
         $this->forge->createTable('cart');
     }
 

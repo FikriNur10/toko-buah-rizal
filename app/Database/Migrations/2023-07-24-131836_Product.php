@@ -9,34 +9,34 @@ class Product extends Migration
     public function up()
     {
         $this->forge->addField([
-            'product_id' => [
+            'id' => [
                 'type' => 'BIGINT',
                 'constraint' => 10,
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'product_code' => [
+            'produk_code' => [
                 'type' => 'VARCHAR',
                 'constraint' => 10,
                 'unique' => true,
             ],
-            'product_name' => [
+            'name' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100,
             ],
-            'product_price' => [
+            'price' => [
                 'type' => 'INT',
                 'constraint' => 100,
             ],
-            'product_description' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
+            'expiried_date' => [
+                'type' => 'DATE',
+                'null' => false,
             ],
-            'product_stock' => [
+            'stock' => [
                 'type' => 'INT',
                 'constraint' => 12,
             ],
-            'product_image' => [
+            'image' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
@@ -49,8 +49,8 @@ class Product extends Migration
                 'null' => true,
             ],
         ]);
-        $this->forge->addKey('product_code', true);
-        $this->forge->createTable('product');
+        $this->forge->addPrimaryKey('id');
+        $this->forge->createTable('produk');
     }
 
     public function down()
