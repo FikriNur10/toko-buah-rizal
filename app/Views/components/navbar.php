@@ -47,7 +47,7 @@
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop">Shop</a>
+                            <a class="nav-link" href="produk">Shop</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about">About</a>
@@ -58,11 +58,9 @@
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
-                    <?php if (isset($_SESSION['isLoggedIn']) == TRUE): ?>
-                        <a class="nav-icon position-relative text-decoration-none" href="cart">
+                        <a class="nav-icon position-relative text-decoration-none" href="keranjang">
                             <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         </a>
-                    <?php endif ?>
                     <a class="nav-icon position-relative text-decoration-none" href="login">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
 

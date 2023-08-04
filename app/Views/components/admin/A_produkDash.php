@@ -14,7 +14,7 @@
               <?php foreach ($product as $productItem): ?>
               <div class="col">
                   <div class="card">
-                      <img src="/assets/img/anggur.jpg" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                      <img src="/uploads/<?php echo $productItem['product_image']; ?>" class="card-img-top" alt="Hollywood Sign on The Hill" />
                       <div class="card-body">
                           <h5 class="card-title"><?php echo $productItem['product_name']; ?></h5>
                           <p class="card-text"><?php echo $productItem['product_price']; ?></p>

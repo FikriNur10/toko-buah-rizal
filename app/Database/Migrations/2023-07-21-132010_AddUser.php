@@ -11,7 +11,7 @@ class AddUser extends Migration
         $this->forge->addField([
             'id' => [
                 'type' => 'BIGINT',
-                'constraint' => 255,
+                'constraint' => 10,
                 'unsigned' => true,
                 'auto_increment' => true
             ],

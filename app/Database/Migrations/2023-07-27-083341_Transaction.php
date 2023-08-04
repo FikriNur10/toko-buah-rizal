@@ -20,26 +20,21 @@ class Transaction extends Migration
                 'constraint' => 10,
                 'unique' => true,
             ],
-            'trans_customer' => [
-                'type' => 'VARCHAR',
-                'constraint' => 100,
+            'user_id' => [
+                'type' => 'INT',
+                'constraint' => 10,
             ],
-            'trans_product' => [
+            'produk_code' => [
                 'type' => 'VARCHAR',
-                'constraint' => 255,
+                'constraint' => 10,
             ],
-            'trans_qty' => [
+            'total' => [
                 'type' => 'INT',
                 'contraints' => 10
             ],
-            'trans_total' => [
-                'type' => 'INT',
-                'contraints' => 100
-            ],
-            'trans_method' => [
-                'type' => 'ENUM',
-                'constraint' => ['transfer', 'cash'],
-                'default' => 'transfer',
+            'image' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
             ],
             'trans_status' => [
                 'type' => 'ENUM',
@@ -55,7 +50,7 @@ class Transaction extends Migration
                 'null' => true
             ],
             ]);
-            $this->forge->addKey('id', true);
+            $this->forge->addKey('id');
             $this->forge->createTable('transaction');
     }
 
