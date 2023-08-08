@@ -28,6 +28,23 @@ class AddUser extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
+            'kodepos' => [
+                'type' => 'INT',
+                'constraint' => '10',
+            ],
+            'negara' => [
+                'type' => 'ENUM',
+                'constraint' => ['Indonesia', 'Malaysia', 'Singapura', 'Thailand', 'Filipina', 'Vietnam', 'Laos', 'Myanmar', 'Brunei Darussalam', 'Laos'],
+                'default' => 'Indonesia',
+            ],
+            'kota' => [
+                'type' => 'VARCHAR',
+                'constraint' => '50',
+            ],
+            'provinsi' => [
+                'type' => 'VARCHAR',
+                'constraint' => '50',
+            ],
             'phone' => [
                 'type' => 'INT',
                 'constraint' => '12',
