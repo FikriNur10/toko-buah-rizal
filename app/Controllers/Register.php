@@ -14,8 +14,7 @@ class Register extends BaseController
  
     public function index()
     {
-        $data = [];
-        return view('pages/register', $data);
+        return view('pages/register');
     }
    
     public function register()
@@ -24,6 +23,10 @@ class Register extends BaseController
             'name' => 'required|min_length[3]|max_length[20]',
             'email' => ['rules' => 'required|min_length[4]|max_length[255]|valid_email|is_unique[users.email]'],
             'address' => 'required|min_length[10]|max_length[255]',
+            'kodepos' => 'required|min_length[5]|max_length[10]',
+            'negara' => 'required',
+            'kota' => 'required|min_length[3]|max_length[50]',
+            'provinsi' => 'required|min_length[3]|max_length[50]',
             'phone' => 'required|min_length[10]|max_length[14]',
             'role' => 'required',
             'password' => ['rules' => 'required|min_length[8]|max_length[255]'],
@@ -37,6 +40,10 @@ class Register extends BaseController
                 'name'     => $this->request->getVar('name'),
                 'email'    => $this->request->getVar('email'),
                 'address'  => $this->request->getVar('address'),
+                'kodepos' => $this->request->getVar('kodepos'),
+                'negara'   => $this->request->getVar('negara'),
+                'kota'     => $this->request->getVar('kota'),
+                'provinsi' => $this->request->getVar('provinsi'),
                 'phone'    => $this->request->getVar('phone'),
                 'role'     => $this->request->getVar('role'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)

@@ -14,12 +14,12 @@
               <?php foreach ($product as $productItem): ?>
               <div class="col">
                   <div class="card">
-                      <img src="/uploads/<?php echo $productItem['product_image']; ?>" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                      <img src="/uploads/<?php echo $productItem['image']; ?>" class="card-img-top" alt="Hollywood Sign on The Hill" />
                       <div class="card-body">
-                          <h5 class="card-title"><?php echo $productItem['product_name']; ?></h5>
-                          <p class="card-text"><?php echo $productItem['product_price']; ?></p>
-                          <a href="#" class="btn btn-primary">Edit</a>
-                          <a href="/dashboard/produk/<?php echo $productItem['product_code']; ?>/delete" class="btn btn-danger">Hapus</a>
+                          <h5 class="card-title"><?php echo $productItem['name']; ?></h5>
+                          <p class="card-text"><?php echo $productItem['price']; ?></p>
+                          <a href="/edit/<?php echo $productItem['produk_code']; ?>" class="btn btn-primary">Edit</a>
+                          <a href="/dashboard/produk/delete/<?php echo $productItem['id']; ?>" class="btn btn-danger">Hapus</a>
                       </div>
                   </div>
                 </div>

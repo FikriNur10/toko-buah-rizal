@@ -21,16 +21,24 @@ class Transaction extends Migration
                 'unique' => true,
             ],
             'user_id' => [
-                'type' => 'INT',
+                'type' => 'BIGINT',
                 'constraint' => 10,
+                'unsigned' => true,
+                'null' => true,
             ],
             'produk_code' => [
                 'type' => 'VARCHAR',
-                'constraint' => 10,
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'quantity' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
             ],
             'total' => [
                 'type' => 'INT',
-                'contraints' => 10
+                'constraint' => 100,
             ],
             'image' => [
                 'type' => 'VARCHAR',
@@ -43,15 +51,17 @@ class Transaction extends Migration
             ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
-                'null' => true
+                'null' => true,
             ],
             'updated_at' => [
                 'type' => 'TIMESTAMP',
-                'null' => true
+                'null' => true,
             ],
-            ]);
-            $this->forge->addKey('id');
-            $this->forge->createTable('transaction');
+        ]);
+        
+        $this->forge->addKey('id', true); // Set primary key
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE'); // Add foreign key
+        $this->forge->createTable('transaction');
     }
 
     public function down()

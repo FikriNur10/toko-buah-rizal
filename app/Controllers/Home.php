@@ -11,7 +11,7 @@ class Home extends BaseController
             'Sesson' => session()->get('isLoggedIn')
         ];
         echo view('components/navbar', $data);
-        return view('index');
+        echo view('index');
         echo view('components/footer');
 
     }
@@ -39,21 +39,5 @@ class Home extends BaseController
         echo view('components/footer');
 
     }
-
-    public function cart()
-    {   
-        echo view('components/navbar');
-        echo view('pages/cart');
-    }
-
-    public function shop_single()
-    {   
-        echo view('components/navbar');
-        echo view('pages/shop_single');
-
-    } public function confirm_payment()
-    {   
-        echo view('components/navbar');
-        echo view('pages/confirm_payment');
-    }
+ 
 }

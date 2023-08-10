@@ -13,12 +13,6 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="/dashboard">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -28,17 +22,12 @@
     </div>
     <!-- Nav Item - Tables -->
     <li class="nav-item active" aria-current="true">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="/dashboard">
             <i class="fas fa-fw fa-table"></i>
-            <span>Transaksi saya</span></a>
+            <span>Daftar Transaksi</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Pembayaran</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/userdashboard/settings">
+        <a class="nav-link" href="dashboard/setting">
             <i class="fas fa-fw fa-table"></i>
             <span>Pengaturan</span></a>
     </li>

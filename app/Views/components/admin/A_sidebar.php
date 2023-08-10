@@ -43,11 +43,6 @@
                  <i class="fas fa-fw fa-table"></i>
                  <span>Daftar Transaksi</span></a>
          </li>
-         <li class="nav-item">
-             <a class="nav-link" href="/dashboard/konfirmasi">
-                 <i class="fas fa-fw fa-table"></i>
-                 <span>Konfirmasi Transaksi</span></a>
-         </li>
          <div class="sidebar-heading pt-2">
              Lainnya
          </div>
