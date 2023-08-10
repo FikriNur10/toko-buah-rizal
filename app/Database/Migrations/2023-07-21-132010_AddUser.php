@@ -34,7 +34,7 @@ class AddUser extends Migration
             ],
             'negara' => [
                 'type' => 'ENUM',
-                'constraint' => ['Indonesia', 'Malaysia', 'Singapura', 'Thailand', 'Filipina', 'Vietnam', 'Laos', 'Myanmar', 'Brunei Darussalam', 'Laos'],
+                'constraint' => ['Indonesia', 'Malaysia', 'Singapura', 'Thailand', 'Filipina', 'Vietnam', 'Laos', 'Myanmar', 'Brunei Darussalam'],
                 'default' => 'Indonesia',
             ],
             'kota' => [

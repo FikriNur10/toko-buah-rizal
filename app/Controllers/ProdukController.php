@@ -9,7 +9,7 @@ use App\Models\Cart;
 
 class ProdukController extends BaseController
 {
-    
+
     public function store()
     {
         $productModel = new Produk();
@@ -17,7 +17,7 @@ class ProdukController extends BaseController
         // Ensure the form submission method is POST
         if ($this->request->getMethod() === 'post') {
             // Get the image file from the file input field
-            $productImage = $this->request->getFile('product_image');
+            $productImage = $this->request->getFile('image');
 
             // Check if the image file is uploaded successfully
             if ($productImage->isValid() && !$productImage->hasMoved()) {
@@ -29,12 +29,12 @@ class ProdukController extends BaseController
 
                 // Get other form data and store it in the $data array
                 $data = [
-                    'product_code' => $this->request->getPost('product_code'),
-                    'product_name' => $this->request->getPost('product_name'),
-                    'product_price' => $this->request->getPost('product_price'),
-                    'product_description' => $this->request->getPost('product_description'),
-                    'product_stock' => $this->request->getPost('product_stock'),
-                    'product_image' => $newName, // Store the image file name in the database
+                    'produk_code' => $this->request->getPost('produk_code'),
+                    'name' => $this->request->getPost('name'),
+                    'price' => $this->request->getPost('price'),
+                    'expiried_date' => $this->request->getPost('expiried_date'),
+                    'stock' => $this->request->getPost('stock'),
+                    'image' => $newName, // Store the image file name in the database
                 ];
 
                 // Save the product data to the database using the model
@@ -49,32 +49,71 @@ class ProdukController extends BaseController
         return redirect()->back()->withInput()->with('error', 'Failed to add product. Please try again.');
     }
 
-    public function edit($product_id)
+    public function edit($produk_code)
     {
         $productModel = new Produk();
 
-        $data = [
-            'product' => $productModel->find($product_id),
+        $data['record'] = $productModel->getDataById($produk_code);
+        $dataweb = [
+            'title' => 'Edit Product'
         ];
 
-        return view('components/admin/A_editProduk', $data);
+        echo view('components/admin/A_header',$dataweb);
+        echo view('components/admin/A_sidebar');
+        echo view('components/admin/A_topbar', $dataweb);
+        echo view('components/admin/A_editProduk', $data);
+        echo view('components/admin/A_footer');
+
     }
 
-    public function deleteProduk(){
+    public function deleteProduk($id)
+    {
         $productModel = new Produk();
-        $product_id = $this->request->getPost('product_id');
-        $productModel->delete($product_id);
-        return redirect()->to('/dashboard/produk/')->with('success', 'Product deleted successfully.');
+        $productModel->deleteData($id);
+        return redirect()->to('/dashboard/produk');
+    }
+    
+    public function updateProduk()
+{
+    $productModel = new Produk();
+    $id = $this->request->getPost('produk_code');
+
+    // Mengambil data produk berdasarkan ID
+    $existingProduct = $productModel->find($id);
+
+    $data = [
+        'produk_code' => $this->request->getPost('produk_code'),
+        'name' => $this->request->getPost('name'),
+        'price' => $this->request->getPost('price'),
+        'expiried_date' => $this->request->getPost('expiried_date'),
+        'stock' => $this->request->getPost('stock'),
+        'image' => $existingProduct['image'], // Menyimpan nama file gambar yang sudah ada di database
+    ];
+
+    // Mengelola gambar baru (jika di-upload)
+    $newImage = $this->request->getFile('image');
+    if ($newImage->isValid() && !$newImage->hasMoved()) {
+        $newImageName = $newImage->getRandomName();
+        $newImage->move(ROOTPATH . 'public/uploads', $newImageName);
+        $data['image'] = $newImageName;
     }
 
-    public function addCart(){
+    $productModel->updateData($id, $data);
+    return redirect()->to('/dashboard/produk')->with('success', 'Product updated successfully.');
+}
+
+
+    public function addCart()
+    {
         $cartModel = new Cart();
         $data = [
-            'user_id' => $this->request->getPost('user_id'),
-            'product_code' => $this->request->getPost('product_code'),
-            'cart_qty' => $this->request->getPost('cart_qty'),
+            'user_id' => $this->request->getPost('id'),
+            'produk_code' => $this->request->getPost('produk_code'),
+            'quantity' => $this->request->getPost('quantity'),
         ];
         $cartModel->insert($data);
         return redirect()->to('/keranjang')->with('success', 'Product added to cart successfully.');
     }
+
+
 }

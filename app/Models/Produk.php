@@ -12,8 +12,8 @@ class Produk extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = false;
-    protected $allowedFields    = ['product_code', 'product_name', 'product_price', 'product_description', 'product_stock', 'product_image'];
+    protected $protectFields    = true;
+    protected $allowedFields    = ['produk_code', 'name', 'price','expiried_date','stock', 'image'];
 
     // Dates
     protected $useTimestamps = true;
@@ -38,4 +38,18 @@ class Produk extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function deleteData($id)
+    {
+        return $this->where('id', $id)->delete();
+    }
+    public function getDataById($produk_code)
+    {
+        return $this->where('produk_code', $produk_code)->first();
+    }
+    
+    public function updateData($id, $data)
+    {
+        return $this->update($id, $data);
+    }
 }
