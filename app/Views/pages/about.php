@@ -14,9 +14,6 @@
                 </form>
             </div>
         </div>
-
-
-
         <section class="bg-success py-5">
             <div class="container">
                 <div class="row align-items-center py-5">
@@ -45,22 +42,18 @@
                 </div>
             </div>
             <div class="row">
-
                 <div class="col-md-6 col-lg-4 pb-5">
                     <div class="h-100 py-5 services-icon-wap shadow">
                         <div class="h1 text-success text-center"><i class="fa fa-truck fa-lg"></i></div>
                         <h2 class="h5 mt-4 text-center">Layanan Pengiriman</h2>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-lg-4 pb-5">
                     <div class="h-100 py-5 services-icon-wap shadow">
                         <div class="h1 text-success text-center"><i class="fas fa-exchange-alt"></i></div>
                         <h2 class="h5 mt-4 text-center">Pengiriman & Pengembalian</h2>
                     </div>
                 </div>
-
-
                 <div class="col-md-6 col-lg-4 pb-5">
                     <div class="h-100 py-5 services-icon-wap shadow">
                         <div class="h1 text-success text-center"><i class="fa fa-user"></i></div>
@@ -69,11 +62,7 @@
                 </div>
             </div>
         </section>
-        <!-- End Section -->
-
-        
-                          
-                                
+        <!-- End Section -->                        
                             <!--End Controls-->
                         </div>
                     </div>

@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Payments;
 use App\Models\UserModel;
 use App\Models\Produk;
+
 class Dashboard extends BaseController
 {
     public function index()
@@ -36,27 +37,28 @@ class Dashboard extends BaseController
                 'totalproducts' => $totalproducts,
             ];
             // Fungsi untuk menghitung jumlah produk dan total dari transaksi
-            function calculateTotalProductsAndTotal($transactions, $produkModel) {
+            function calculateTotalProductsAndTotal($transactions, $produkModel)
+            {
                 $totalProducts = 0;
                 $grandTotal = 0;
-            
+
                 foreach ($transactions as $trans) {
                     if ($trans['trans_status'] === 'success') {
                         $produkCodes = json_decode($trans['produk_code']);
                         $quantities = json_decode($trans['quantity']);
                         $totalPrice = $trans['total'];
-            
+
                         foreach ($quantities as $quantity) {
                             $totalProducts += $quantity;
                         }
-            
+
                         $grandTotal += $totalPrice;
                     }
                 }
-            
+
                 return ['totalProducts' => $totalProducts, 'grandTotal' => $grandTotal];
             }
-            
+
 
             $calculations = calculateTotalProductsAndTotal($transactions, $produkModel);
 

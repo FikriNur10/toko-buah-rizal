@@ -70,7 +70,6 @@
       updatePrice(input);
     }
   }
-
   function updatePrice(input) {
     var cartId = input.getAttribute('data-cart-id');
     var pricePerItem = <?php echo $item['product']['price']; ?>;

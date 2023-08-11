@@ -1,14 +1,11 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Pembayaran Order #1235245454</h1>
     </div>
-
-    <!-- Content Row -->
+    <!--Content Row -->
     <div class="row">
-
         <!-- Earnings (Monthly) Card Example -->
         <div class="container-fluid mt--6">
             <div class="row">
@@ -101,3 +98,5 @@
             <!-- /.container-fluid -->
         </div>
         <!-- End of Main Content -->
+    </div>
+</div>

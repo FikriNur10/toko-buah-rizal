@@ -12,9 +12,7 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item bg_cover active" style="
-               background-image: url(../assets/carousel/slider_1.jpg);
-
-               ">
+               background-image: url(../assets/carousel/slider_1.jpg);">
             <div class="carousel-caption">
               <div class="container">
                 <div class="row justify-content-center">
@@ -23,7 +21,6 @@
                       Toko Buah Rizal
                     </h2>
                     <ul class="carousel-btn rounded-buttons">
-                      
                     </ul>
                   </div>
                 </div>
