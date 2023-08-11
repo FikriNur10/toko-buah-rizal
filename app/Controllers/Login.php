@@ -37,6 +37,7 @@ class Login extends BaseController
             'email' => $user['email'],
             'name' => $user['name'],
             'role' => $user['role'],
+            'negara' => $user['negara'],
             'isLoggedIn' => TRUE
         ];
  

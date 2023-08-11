@@ -1,4 +1,12 @@
 <section class="p-5">
+    <?php if (session('isLoggedIn') === TRUE) : ?>
+        <?php if (strcasecmp(session('negara'), 'Indonesia') !== 0) : ?>
+            <div class="alert alert-danger" role="alert">
+                Anda tidak berada di Indonesia, Anda tidak dalam jangkauan pengiriman kami.
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+
     <div class="px-5 pb-4">
         <H1>Produk Kami</H1>
     </div>
@@ -10,9 +18,10 @@
                         <img src="/uploads/<?php echo $productItem['image']; ?>" class="card-img-top" style="max-height: 200px; object-fit: contain;" />
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $productItem['name']; ?></h5>
-                            <p class="card-text"><?php echo $productItem['price']; ?></p>
+                            <p class="card-text">Harga : Rp.<?php echo number_format($productItem['price'], 2, ',', '.'); ?></p>
+                            <p class="card-text">Expiried : <?php echo $productItem['expiried_date']; ?></p>
+                            <p class="card-text">Stock : <?php echo $productItem['stock']; ?></p>
                             <div class="d-grid gap-2">
-                                <a class="btn btn-success" type="button">Buy Now</a>
                                 <button class="btn btn-primary" type="submit">Add to Cart</button>
                             </div>
                         </div>

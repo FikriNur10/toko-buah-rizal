@@ -2,17 +2,14 @@
 <footer class="bg-dark" id="tempaltemo_footer">
         <div class="container">
             <div class="row">
-
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-success border-bottom pb-3 border-light logo">Toko Buah Rizal</h2>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             Belanja buah segar berkualitas dengan murah, mudah dan cepat.
-                        </li>
-                       
+                        </li>                      
                     </ul>
                 </div>
-
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Menu</h2>
                     <ul class="list-unstyled text-light footer-link-list">
@@ -21,7 +18,6 @@
                         <li><a class="text-decoration-none" href="contact">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Punya Pertanyaan?</h2>
                     <ul class="list-unstyled text-light footer-link-list">
@@ -39,9 +35,7 @@
                         </li>
                     </ul>   
                 </div>
-
             </div>
-
             <div class="row text-light mb-4">
                 <div class="col-12 mb-3">
                     <div class="w-100 my-3 border-top border-light"></div>
@@ -57,11 +51,9 @@
                         </li>
                         
                     </ul>
-                </div>
-               
+                </div>        
             </div>
         </div>
-
         <div class="w-100 bg-black py-3">
             <div class="container">
                 <div class="row pt-2">
@@ -71,10 +63,8 @@
                 </div>
             </div>
         </div>
-
     </footer>
     <!-- End Footer -->
-
     <!-- Start Script -->
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>

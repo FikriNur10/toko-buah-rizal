@@ -86,11 +86,9 @@ class Pembayaran extends BaseController
             $transactionModel->insert($transactionData);
 
             $buktiPembayaran->move('./uploads', $buktiPembayaran->getName());
-            var_dump($produkCodes);
-            var_dump($quantities);
-            // Ubah URL sesuai dengan halaman yang sesuai setelah pembayaran berhasil
+            
+            return redirect()->to('/dashboard');
         } else {
-            // Handle jika data dari tabel cart tidak ditemukan
         }
     }
 }

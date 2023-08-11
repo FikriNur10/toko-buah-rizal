@@ -40,42 +40,44 @@ $routes->post('/register', 'Register::register', ['filter' => 'guestFilter']);
 
 $routes->get('/login', 'Login::index', ['filter' => 'guestFilter']);
 $routes->post('/login', 'Login::authenticate', ['filter' => 'guestFilter']);
- 
+
 $routes->get('/logout', 'Login::logout', ['filter' => 'authFilter']);
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authFilter']);
 
 // admin route
 $routes->get('/dashboard/produk', 'Admin::productDash', ['filter' => 'authFilter']);
 $routes->get('/dashboard/konfirmasi', 'Admin::konfirmasi', ['filter' => 'authFilter']);
-$routes->get('/dashboard/tambahproduk','Admin::tambahProduk',['filter' => 'authFilter']);
-$routes->get('/dashboard/transaksi','Admin::daftarTransaksi',['filter' => 'authFilter']);
-$routes->get('/dashboard/user','Admin::daftarUser',['filter' => 'authFilter']);
+$routes->get('/dashboard/tambahproduk', 'Admin::tambahProduk', ['filter' => 'authFilter']);
+$routes->get('/dashboard/transaksi', 'Admin::daftarTransaksi', ['filter' => 'authFilter']);
+$routes->get('/dashboard/user', 'Admin::daftarUser', ['filter' => 'authFilter']);
+$routes->post('/user/update/(:num)', 'User::userUpdate/$1');
+
 
 //Tambah produk
-$routes->post('/dashboard/tambahproduk/store','ProdukController::store',['filter' => 'authFilter']);
+$routes->post('/dashboard/tambahproduk/store', 'ProdukController::store', ['filter' => 'authFilter']);
 //Delete Produk
-$routes->get('/dashboard/produk/delete/(:num)','ProdukController::deleteProduk/$1',['filter' => 'authFilter']);
+$routes->get('/dashboard/produk/delete/(:num)', 'ProdukController::deleteProduk/$1', ['filter' => 'authFilter']);
 //Edit Produk
-$routes->get('/edit/(:any)','ProdukController::edit/$1',['filter' => 'authFilter']);
-$routes->post('/dashboard/produk/update/(:any)','ProdukController::updateProduk/$1',['filter' => 'authFilter']);
+$routes->get('/edit/(:any)', 'ProdukController::edit/$1', ['filter' => 'authFilter']);
+$routes->post('/dashboard/produk/update/(:any)', 'ProdukController::updateProduk/$1', ['filter' => 'authFilter']);
 
 //konfirmasi
-$routes->get('/konfirmasi/(:any)','Admin::konfirmasi',['filter' => 'authFilter']);
-$routes->post('/konfirmasi/(:num)/update','Admin::updateStatus/$1',['filter' => 'authFilter']);
+$routes->get('/konfirmasi/(:any)', 'Admin::konfirmasi', ['filter' => 'authFilter']);
+$routes->post('/konfirmasi/(:num)/update', 'Admin::updateStatus/$1', ['filter' => 'authFilter']);
 
 
 // User route front end
 $routes->get('/keranjang', 'User::cart', ['filter' => 'authFilter']);
 $routes->get('/produk', 'User::productSingel');
-$routes->get('/dashboard/setting','User::setting');
+$routes->get('/dashboard/setting', 'User::setting');
 // User route backend
-$routes->post('/cart/add','ProdukController::addCart',['filter' => 'authFilter']);
+$routes->post('/cart/add', 'ProdukController::addCart', ['filter' => 'authFilter']);
 // menghapus cart
-$routes->get('/cart/remove/(:num)','User::removeFromCart/$1',['filter' => 'authFilter']);
+$routes->get('/cart/remove/(:num)', 'User::removeFromCart/$1', ['filter' => 'authFilter']);
 // mengupdate cart
 $routes->post('/cart/update/(:num)', 'User::updateCart/$1'); // Route to update cart item quantity
 
-$routes->get('/payment', 'Pembayaran::index',['filter' => 'authFilter']);
+$routes->get('/payment', 'Pembayaran::index', ['filter' => 'authFilter']);
 $routes->post('/payment/checkout', 'Pembayaran::store', ['as' => 'checkout']);
 
 /*
@@ -134,4 +136,3 @@ $routes->set404Override();
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
-
