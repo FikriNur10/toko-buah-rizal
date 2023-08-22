@@ -40,6 +40,10 @@ class Product extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
+            'deskripsi' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
                 'null' => true,

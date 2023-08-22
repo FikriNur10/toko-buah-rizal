@@ -46,12 +46,16 @@ $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authFilter']);
 
 // admin route
 $routes->get('/dashboard/produk', 'Admin::productDash', ['filter' => 'authFilter']);
-$routes->get('/dashboard/konfirmasi', 'Admin::konfirmasi', ['filter' => 'authFilter']);
 $routes->get('/dashboard/tambahproduk', 'Admin::tambahProduk', ['filter' => 'authFilter']);
-$routes->get('/dashboard/transaksi', 'Admin::daftarTransaksi', ['filter' => 'authFilter']);
+
 $routes->get('/dashboard/user', 'Admin::daftarUser', ['filter' => 'authFilter']);
+$routes->get('/user/(:num)/delete', 'Admin::deleteUser/$1', ['filter' => 'authFilter']);
 $routes->post('/user/update/(:num)', 'User::userUpdate/$1');
 
+$routes->get('/dashboard/tambahadmin', 'Admin::tambahUser', ['filter' => 'authFilter']);
+$routes->post('/dashboard/tambahadmin/store', 'Admin::registerAdmin', ['filter' => 'authFilter']);
+
+$routes->get('/dashboard/adminsetting', 'Admin::settingAdmin', ['filter' => 'authFilter']);
 
 //Tambah produk
 $routes->post('/dashboard/tambahproduk/store', 'ProdukController::store', ['filter' => 'authFilter']);
@@ -61,9 +65,13 @@ $routes->get('/dashboard/produk/delete/(:num)', 'ProdukController::deleteProduk/
 $routes->get('/edit/(:any)', 'ProdukController::edit/$1', ['filter' => 'authFilter']);
 $routes->post('/dashboard/produk/update/(:any)', 'ProdukController::updateProduk/$1', ['filter' => 'authFilter']);
 
+//Transaksi
+$routes->get('/dashboard/transaksi', 'Admin::daftarTransaksi', ['filter' => 'authFilter']);
 //konfirmasi
-$routes->get('/konfirmasi/(:any)', 'Admin::konfirmasi', ['filter' => 'authFilter']);
+$routes->get('/konfirmasi/(:any)', 'Admin::detailKonfirmasi/$1', ['filter' => 'authFilter']);
 $routes->post('/konfirmasi/(:num)/update', 'Admin::updateStatus/$1', ['filter' => 'authFilter']);
+
+$routes->get('/dashboard/table', 'Dashboard::table', ['filter' => 'authFilter']);
 
 
 // User route front end
@@ -75,7 +83,7 @@ $routes->post('/cart/add', 'ProdukController::addCart', ['filter' => 'authFilter
 // menghapus cart
 $routes->get('/cart/remove/(:num)', 'User::removeFromCart/$1', ['filter' => 'authFilter']);
 // mengupdate cart
-$routes->post('/cart/update/(:num)', 'User::updateCart/$1'); // Route to update cart item quantity
+$routes->post('/cart/update/(:num)', 'User::updateCart/$1', ['filter' => 'authFilter']); // Route to update cart item quantity
 
 $routes->get('/payment', 'Pembayaran::index', ['filter' => 'authFilter']);
 $routes->post('/payment/checkout', 'Pembayaran::store', ['as' => 'checkout']);

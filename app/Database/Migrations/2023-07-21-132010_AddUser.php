@@ -1,9 +1,9 @@
 <?php
- 
+
 namespace App\Database\Migrations;
- 
+
 use CodeIgniter\Database\Migration;
- 
+
 class AddUser extends Migration
 {
     public function up()
@@ -17,7 +17,7 @@ class AddUser extends Migration
             ],
             'name' => [
                 'type' => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => '50',
             ],
             'email' => [
                 'type' => 'VARCHAR',
@@ -38,16 +38,16 @@ class AddUser extends Migration
                 'default' => 'Indonesia',
             ],
             'kota' => [
-                'type' => 'VARCHAR',
-                'constraint' => '50',
+                'type' => 'INT',
+                'constraint' => '5',
             ],
             'provinsi' => [
-                'type' => 'VARCHAR',
-                'constraint' => '50',
+                'type' => 'INT',
+                'constraint' => '5',
             ],
             'phone' => [
                 'type' => 'INT',
-                'constraint' => '12',
+                'constraint' => '14',
             ],
             'password' => [
                 'type' => 'VARCHAR',
@@ -66,11 +66,11 @@ class AddUser extends Migration
                 'type' => 'TIMESTAMP',
                 'null' => true
             ],
-        ]); 
+        ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('users');        
+        $this->forge->createTable('users');
     }
- 
+
     public function down()
     {
         $this->forge->dropTable('users');

@@ -31,6 +31,10 @@
           <label for="image">Gambar Produk</label>
           <input type="file" class="form-control-file" name="image" id="image" accept="image/*" required>
         </div>
+        <div class="form-group mb-3">
+          <label for="deskripsi">Deskripsi</label>
+          <input type="text" class="form-control" name="deskripsi" id="deskripsi" placeholder="Masukkan Deskripsi" required>
+        </div>
         <button type="submit" class="btn btn-primary">Tambah Produk</button>
     </form>
   </div>

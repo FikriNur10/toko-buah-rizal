@@ -10,6 +10,8 @@ use App\Models\Payments;
 
 class Pembayaran extends BaseController
 {
+    public $apiKey = "240107374a697fa63aa22f7346ad14f8";
+
     public function index()
     {
         $userModel = new UserModel();
@@ -25,12 +27,44 @@ class Pembayaran extends BaseController
             $productDetail = $cartModel->getProductByCode($item['produk_code']);
             $item['product'] = $productDetail;
         }
+        // Calculate the total quantity
+        $totalQuantity = array_reduce($cartItems, function ($carry, $item) {
+            return $carry + $item['quantity'];
+        }, 0);
 
+        $weight = $totalQuantity * 1000;
         $cart['cartItems'] = $cartItems;
+
+        $userKota = $user['kota'];
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.rajaongkir.com/starter/cost",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "origin=151&destination=" . urlencode($userKota) . "&weight=" . urlencode($weight) . "&courier=jne",
+            CURLOPT_HTTPHEADER => array(
+                "content-type: application/x-www-form-urlencoded",
+                "key:" . $this->apiKey,
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $response = json_decode($response, true);
+        $err = curl_error($curl);
+
+        curl_close($curl);
 
         $data = [
             'user' => $user,
-            'cart' => $cart, // Assuming $cart is an array
+            'cart' => $cart,
+            'paymentDetails' => $response,
+            'totalQuantity' => $totalQuantity, // Add the total quantity to the data
         ];
 
         echo view('components/navbar');
@@ -39,7 +73,6 @@ class Pembayaran extends BaseController
 
     public function store()
     {
-        $userModel = new UserModel();
         $produkModel = new Produk();
         $transactionModel = new Payments();
         $cartModel = new Cart();
@@ -48,7 +81,7 @@ class Pembayaran extends BaseController
         $buktiPembayaran = $this->request->getFile('bukti_pembayaran');
         $produkCodes = $this->request->getPost('produk_code');
         $quantities = $this->request->getPost('quantity');
-
+        $ongkir = $this->request->getPost('ongkir');
 
         // Ambil data dari tabel cart
         $cartItems = $cartModel->where('user_id', $user_id)->findAll();
@@ -78,7 +111,7 @@ class Pembayaran extends BaseController
                 'user_id' => $user_id,
                 'produk_code' => $produkCodeString,
                 'quantity' => json_encode($quantities),
-                'total' => $total,
+                'total' => $total + $ongkir,
                 'image' => $buktiPembayaran->getName(),
                 'trans_status' => 'pending',
             ];
@@ -86,9 +119,30 @@ class Pembayaran extends BaseController
             $transactionModel->insert($transactionData);
 
             $buktiPembayaran->move('./uploads', $buktiPembayaran->getName());
-            
+
             return redirect()->to('/dashboard');
         } else {
         }
+    }
+    public function konfirmasi($id)
+    {
+        $transactionModel = new Payments();
+        $transaction = $transactionModel->where('id', $id)->first();
+
+        if (!$transaction) {
+            // Jika transaksi tidak ditemukan, mungkin Anda ingin menangani kasus ini, seperti menampilkan pesan error atau melakukan pengalihan.
+            return redirect()->to('/dashboard')->with('error', 'Transaksi tidak ditemukan');
+        }
+
+        $data = [
+            'title' => 'Konfirmasi',
+            'transaction' => $transaction,
+        ];
+
+        echo view('components/admin/A_header', $data);
+        echo view('components/admin/A_sidebar');
+        echo view('components/admin/A_topbar', $data);
+        echo view('components/admin/A_konfirmasiDash', $data);
+        echo view('components/admin/A_footer');
     }
 }

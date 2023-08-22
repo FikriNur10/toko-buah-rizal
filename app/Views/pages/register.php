@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- Custom styles for this template-->
 </head>
+
 </html>
 <!-- PENGHUBUNG SURGA -->
 <?= $this->extend("project/layout") ?>
@@ -30,14 +32,14 @@
                   <label class="form-label" for="name">Name</label>
                   <input type="text" id="name" name="name" value="<?= set_value('name') ?>" class="form-control form-control-sm" />
                   <?php if (isset($validation)) : ?>
-                    <small class="text-danger"><?= $validation->getError('name') ?></small>
+                    <small class="text-warning"><?= $validation->getError('name') ?></small>
                   <?php endif; ?>
                 </div>
                 <div class="form-outline form-white mb-3">
                   <label class="form-label" for="email">Email</label>
                   <input type="email" id="email" name="email" value="<?= set_value('email') ?>" class="form-control form-control-sm" />
                   <?php if (isset($validation)) : ?>
-                    <small class="text-danger"><?= $validation->getError('email') ?></small>
+                    <small class="text-warning"><?= $validation->getError('email') ?></small>
                   <?php endif; ?>
                 </div>
               </div>
@@ -46,7 +48,7 @@
                 <label for="address" class="form-label">Alamat</label>
                 <textarea class="form-control" id="address" name="address"><?= set_value('address') ?></textarea>
                 <?php if (isset($validation)) : ?>
-                  <small class="text-danger"><?= $validation->getError('address') ?></small>
+                  <small class="text-warning"><?= $validation->getError('address') ?></small>
                 <?php endif; ?>
               </div>
               <!-- alamat -->
@@ -56,14 +58,14 @@
                   <label for="kodepos" class="form-label">Kode Pos</label>
                   <input type="number" class="form-control" id="kodepos" name="kodepos" value="<?= set_value('kodepos') ?>"></input>
                   <?php if (isset($validation)) : ?>
-                    <small class="text-danger"><?= $validation->getError('kodepos') ?></small>
+                    <small class="text-warning"><?= $validation->getError('kodepos') ?></small>
                   <?php endif; ?>
                 </div>
                 <!-- kodepos end -->
                 <!-- negara -->
                 <div class="form-outline form-white mb-3">
                   <label for="negara" class="form-label">Negara</label>
-                  <select class="form-control" id="negara" name="negara" value="<?= set_value('negara') ?>">
+                  <select class="form-select" id="negara" name="negara" value="<?= set_value('negara') ?>">
                     <option value="Indonesia" value="<?= set_value('negara') ?>">Indonesia</option>
                     <option value="Malaysia" value="<?= set_value('negara') ?>">Malaysia</option>
                     <option value="Singapura" value="<?= set_value('negara') ?>">Singapura</option>
@@ -74,26 +76,52 @@
                     <option value="Brunei Darussalam" value="<?= set_value('negara') ?>">Brunei Darussalam</option>
                   </select>
                   <?php if (isset($validation)) : ?>
-                    <small class="text-danger"><?= $validation->getError('negara') ?></small>
+                    <small class="text-warning"><?= $validation->getError('negara') ?></small>
                   <?php endif; ?>
                 </div>
                 <!-- negara end -->
-                <!-- kota -->
+                <!--  Provinsi-->
                 <div class="form-outline form-white mb-3">
-                  <label for="provinsi" class="form-label">Kota</label>
-                  <input type="text" class="form-control" id="kota" name="kota" value="<?= set_value('kota') ?>"></input>
-                  <?php if (isset($validation)) : ?>
-                    <small class="text-danger"><?= $validation->getError('provinsi') ?></small>
-                  <?php endif; ?>
+                  <div class="mb-3">
+                    <label class="form-label">Provinsi</label>
+                    <select class="form-select" id="provinsi" name="provinsi">
+                      <option selected>Pilih Provinsi</option>
+                      <?php if (isset($provinsi) && isset($provinsi['rajaongkir']['results'])) : ?>
+                        <?php foreach ($provinsi['rajaongkir']['results'] as $pr) : ?>
+                          <option value="<?php echo $pr['province_id'] ?>" name="provinsi"><?php echo $pr['province'] ?></option>
+                        <?php endforeach ?>
+                      <?php endif ?>
+                      <?php if (isset($validation)) : ?>
+                        <small class="text-warning"><?= $validation->getError('provinsi') ?></small>
+                      <?php endif; ?>
+                    </select>
+                  </div>
+                </div>
+                <!-- Provinsi end -->
+                <!-- Kota  -->
+                <div class="form-outline form-white mb-3">
+                  <div class="mb-3">
+                    <label class="form-label">Kota</label>
+                    <select class="form-select autosearch" id="autosearch" name="kota">
+                      <option selected>Pilih Kota</option>
+                      <?php
+                      if (isset($kota) && isset($kota['rajaongkir']['results'])) {
+                        foreach ($kota['rajaongkir']['results'] as $kt) {
+                      ?>
+                          <option value="<?php echo $kt['city_id'] ?>" data-province="<?php echo $kt['province_id'] ?>" name="kota">
+                            <?php echo $kt['city_name'] ?>
+                          </option>
+                      <?php
+                        }
+                      }
+                      ?>
+                      <?php if (isset($validation)) : ?>
+                        <small class="text-warning"><?= $validation->getError('kota') ?></small>
+                      <?php endif; ?>
+                    </select>
+                  </div>
                 </div>
                 <!-- kota end -->
-                <div class="form-outline form-white mb-3">
-                  <label for="provinsi" class="form-label">Provinsi</label>
-                  <input type="text" class="form-control" id="provinsi" name="provinsi" value="<?= set_value('provinsi') ?>"></input>
-                  <?php if (isset($validation)) : ?>
-                    <small class="text-danger"><?= $validation->getError('provinsi') ?></small>
-                  <?php endif; ?>
-                </div>
               </div>
               <div class="form-outline form-white mb-3">
                 <!-- telepon -->
@@ -101,7 +129,7 @@
                   <label class="form-label" for="phone">Nomer Telepon</label>
                   <input type="tel" id="phone" name="phone" value="<?= set_value('phone') ?>" class="form-control form-control-sm" />
                   <?php if (isset($validation)) : ?>
-                    <small class="text-danger"><?= $validation->getError('phone') ?></small>
+                    <small class="text-warning"><?= $validation->getError('phone') ?></small>
                   <?php endif; ?>
                 </div>
                 <!-- telepon end -->
@@ -109,14 +137,14 @@
                   <label for="password" class="form-label">Password</label>
                   <input type="password" class="form-control form-control-sm" id="password" name="password">
                   <?php if (isset($validation)) : ?>
-                    <small class="text-danger"><?= $validation->getError('password') ?></small>
+                    <small class="text-warning"><?= $validation->getError('password') ?></small>
                   <?php endif; ?>
                 </div>
                 <div class="form-outline form-white mb-3">
                   <label for="confirm_password" class="form-label">Confirm Password</label>
                   <input type="password" class="form-control  form-control-sm" id="confirm_password" name="confirm_password">
                   <?php if (isset($validation)) : ?>
-                    <small class="text-danger"><?= $validation->getError('confirm_password') ?></small>
+                    <small class="text-warning"><?= $validation->getError('confirm_password') ?></small>
                   <?php endif; ?>
                 </div>
               </div>
@@ -124,7 +152,7 @@
                 <label for="role" class="form-label">Role</label>
                 <input type="text" class="form-control" id="role" name="role" value="user">
                 <?php if (isset($validation)) : ?>
-                  <small class="text-danger"><?= $validation->getError('role') ?></small>
+                  <small class="text-warning"><?= $validation->getError('role') ?></small>
                 <?php endif; ?>
               </div>
               <div class="d-grid gap-2 py-3">
@@ -142,4 +170,36 @@
 <!--====== SIGNIN ONE PART ENDS ======-->
 <!-- Bootstrap core JavaScript-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var autosearch = document.getElementById("autosearch");
+    var provinsi = document.getElementById("provinsi");
+
+    autosearch.addEventListener("change", function() {
+      var selectedProvinceId = provinsi.value;
+      var options = autosearch.options;
+      for (var i = 0; i < options.length; i++) {
+        var cityProvinceId = options[i].getAttribute("data-province");
+        if (selectedProvinceId === "" || cityProvinceId === selectedProvinceId) {
+          options[i].style.display = "block";
+        } else {
+          options[i].style.display = "none";
+        }
+      }
+    });
+
+    provinsi.addEventListener("change", function() {
+      var selectedProvinceId = provinsi.value;
+      var options = autosearch.options;
+      for (var i = 0; i < options.length; i++) {
+        var cityProvinceId = options[i].getAttribute("data-province");
+        if (selectedProvinceId === "" || cityProvinceId === selectedProvinceId) {
+          options[i].style.display = "block";
+        } else {
+          options[i].style.display = "none";
+        }
+      }
+    });
+  });
+</script>
 <?= $this->endSection() ?>
