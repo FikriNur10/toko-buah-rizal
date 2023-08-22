@@ -7,7 +7,7 @@
       <!-- Left -->
       <div class="accordion" id="accordionPayment">
         <!-- Credit card -->
-        <div class="accordion-item ">
+        <div class="accordion-item">
           <div class="accordion-body">
             <div class="row">
               <div class="col-lg-6">
@@ -22,15 +22,15 @@
                   <input type="text" class="form-control" value="<?= $user['phone']; ?>">
                 </div>
               </div>
-              <div class="col-lg-6 mb-3">
-                <label class="form-label">Kota</label>
-                <input type="text" class="form-control" value="<?= $user['kota']; ?>">
-              </div>
               <div class="col-lg-6">
                 <div class="mb-3">
                   <label class="form-label">Provinsi</label>
-                  <input type="text" class="form-control" value="<?= $user['provinsi']; ?>">
+                  <input type="text" class="form-control" value="<?= $paymentDetails['rajaongkir']['destination_details']['province']; ?>" disabled>
                 </div>
+              </div>
+              <div class="col-lg-6 mb-3">
+                <label class="form-label">Kota</label>
+                <input type="text" class="form-control" value="<?= $paymentDetails['rajaongkir']['destination_details']['city_name']; ?>" disabled>
               </div>
               <div class="mb-3">
                 <label class="form-label">Alamat</label>
@@ -48,6 +48,7 @@
         foreach ($cart['cartItems'] as $item) :
           $itemTotal = $item['product']['price'] * $item['quantity']; // Calculate item total
           $totalPrice += $itemTotal; // Add item total to total price
+          $totalOngkir = $paymentDetails['rajaongkir']['results']['0']['costs'][1]['cost']['0']['value'];
         ?>
           <div class="d-flex justify-content-between mb-1 small">
             <!-- input ke form -->
@@ -59,11 +60,12 @@
           </div>
         <?php endforeach; ?>
         <div class="d-flex justify-content-between mb-1 small">
-          <span>Ongkos Kirim</span> <span>Rp 20.000,00</span>
+          <span>Ongkos Kirim</span> <span>Rp <?= number_format($totalOngkir, 2, '.', ','); ?></span>
+          <input type="hidden" name="ongkir" value="<?= $totalOngkir; ?>">
         </div>
         <hr>
         <div class="d-flex justify-content-between mb-4 small">
-          <span>TOTAL</span> <strong class="text-dark">Rp <?= number_format($totalPrice + 20000, 2, '.', ','); ?></strong>
+          <span>TOTAL</span> <strong class="text-dark">Rp <?= number_format($totalPrice + $totalOngkir, 2, '.', ','); ?></strong>
         </div>
       </div>
       <div class="col-lg-6">
@@ -85,4 +87,3 @@
   </form>
   <!-- form end -->
 </div>
-<!-- udah -->

@@ -13,7 +13,7 @@ class Produk extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['produk_code', 'name', 'price','expiried_date','stock', 'image'];
+    protected $allowedFields    = ['produk_code', 'name', 'price', 'expiried_date', 'stock', 'image', 'deskripsi'];
 
     // Dates
     protected $useTimestamps = true;
@@ -47,7 +47,7 @@ class Produk extends Model
     {
         return $this->where('produk_code', $produk_code)->first();
     }
-    
+
     public function updateData($id, $data)
     {
         return $this->update($id, $data);

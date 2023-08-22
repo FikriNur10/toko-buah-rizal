@@ -11,6 +11,8 @@ use App\Models\UserModel;
 class User extends BaseController
 {
 
+    public $apiKey = "240107374a697fa63aa22f7346ad14f8";
+
     public function cart()
     {
         // Ambil user ID dari sesi atau data yang sesuai
@@ -75,8 +77,66 @@ class User extends BaseController
     {
         $userModel = new UserModel();
         $id = session()->get('id');
-        $data['user'] = $userModel->where('id', $id)->findAll();
+        $user = $userModel->where('id', $id)->first(); // Use first() instead of findAll()
 
+        // API Rajaongkir function
+        $datakota = curl_init();
+        $dataprovinsi = curl_init();
+
+        // Setting up cURL options for city data
+        curl_setopt_array($datakota, array(
+            CURLOPT_URL => "https://api.rajaongkir.com/starter/city",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "key: " . $this->apiKey,
+            ),
+        ));
+
+        // Setting up cURL options for province data
+        curl_setopt_array($dataprovinsi, array(
+            CURLOPT_URL => "https://api.rajaongkir.com/starter/province",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "key: " . $this->apiKey,
+            ),
+        ));
+
+        // Execute cURL requests
+        $kota = curl_exec($datakota);
+        $provinsi = curl_exec($dataprovinsi);
+
+        // Close cURL handles
+        curl_close($datakota);
+
+        // Decode JSON responses
+        $kotaData = json_decode($kota, true);
+        $provinsiData = json_decode($provinsi, true);
+
+        // Check for cURL errors
+        $kotaError = curl_error($datakota);
+
+        // Prepare data array for the view
+        $data = array();
+
+        if ($kotaError) {
+            $data['kota'] = array('error' => true);
+        } else {
+            $data = [
+                'user' => $user,
+                'kota' => $kotaData,
+                'provinsi' => $provinsiData,
+            ];
+        }
 
         echo view('components/user/U_header');
         echo view('components/user/U_sidebar');
@@ -84,6 +144,8 @@ class User extends BaseController
         echo view('components/user/U_settingDash', $data);
         echo view('components/user/U_footer');
     }
+
+
     public function userUpdate($id)
     {
         $userModel = new UserModel();

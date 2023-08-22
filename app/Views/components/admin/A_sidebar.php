@@ -35,6 +35,7 @@
                  <i class="fas fa-fw fa-table"></i>
                  <span>Data Produk</span></a>
          </li>
+         </li>
          <div class="sidebar-heading pt-2">
              Pembayaran
          </div>
@@ -42,14 +43,18 @@
              <a class="nav-link" href="/dashboard/transaksi">
                  <i class="fas fa-fw fa-table"></i>
                  <span>Daftar Transaksi</span></a>
-         </li>
-         <div class="sidebar-heading pt-2">
-             Lainnya
-         </div>
+             <div class="sidebar-heading pt-2">
+                 Lainnya
+             </div>
          <li class="nav-item">
              <a class="nav-link" href="/dashboard/user">
                  <i class="fas fa-fw fa-table"></i>
                  <span>Data User</span></a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link" href="/dashboard/adminsetting">
+                 <i class="fas fa-fw fa-table"></i>
+                 <span>Setting</span></a>
          </li>
          <li class="nav-item">
              <a class="nav-link" href="<?php echo base_url('/logout'); ?>">

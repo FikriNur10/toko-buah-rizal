@@ -35,6 +35,7 @@ class ProdukController extends BaseController
                     'expiried_date' => $this->request->getPost('expiried_date'),
                     'stock' => $this->request->getPost('stock'),
                     'image' => $newName, // Store the image file name in the database
+                    'deskripsi' => $this->request->getPost('deskripsi'),
                 ];
 
                 // Save the product data to the database using the model
@@ -58,12 +59,11 @@ class ProdukController extends BaseController
             'title' => 'Edit Product'
         ];
 
-        echo view('components/admin/A_header',$dataweb);
+        echo view('components/admin/A_header', $dataweb);
         echo view('components/admin/A_sidebar');
         echo view('components/admin/A_topbar', $dataweb);
         echo view('components/admin/A_editProduk', $data);
         echo view('components/admin/A_footer');
-
     }
 
     public function deleteProduk($id)
@@ -72,35 +72,35 @@ class ProdukController extends BaseController
         $productModel->deleteData($id);
         return redirect()->to('/dashboard/produk');
     }
-    
+
     public function updateProduk()
-{
-    $productModel = new Produk();
-    $id = $this->request->getPost('produk_code');
+    {
+        $productModel = new Produk();
+        $id = $this->request->getPost('produk_code');
 
-    // Mengambil data produk berdasarkan ID
-    $existingProduct = $productModel->find($id);
+        // Mengambil data produk berdasarkan ID
+        $existingProduct = $productModel->find($id);
 
-    $data = [
-        'produk_code' => $this->request->getPost('produk_code'),
-        'name' => $this->request->getPost('name'),
-        'price' => $this->request->getPost('price'),
-        'expiried_date' => $this->request->getPost('expiried_date'),
-        'stock' => $this->request->getPost('stock'),
-        'image' => $existingProduct['image'], // Menyimpan nama file gambar yang sudah ada di database
-    ];
+        $data = [
+            'produk_code' => $this->request->getPost('produk_code'),
+            'name' => $this->request->getPost('name'),
+            'price' => $this->request->getPost('price'),
+            'expiried_date' => $this->request->getPost('expiried_date'),
+            'stock' => $this->request->getPost('stock'),
+            'image' => $existingProduct['image'], // Menyimpan nama file gambar yang sudah ada di database
+        ];
 
-    // Mengelola gambar baru (jika di-upload)
-    $newImage = $this->request->getFile('image');
-    if ($newImage->isValid() && !$newImage->hasMoved()) {
-        $newImageName = $newImage->getRandomName();
-        $newImage->move(ROOTPATH . 'public/uploads', $newImageName);
-        $data['image'] = $newImageName;
+        // Mengelola gambar baru (jika di-upload)
+        $newImage = $this->request->getFile('image');
+        if ($newImage->isValid() && !$newImage->hasMoved()) {
+            $newImageName = $newImage->getRandomName();
+            $newImage->move(ROOTPATH . 'public/uploads', $newImageName);
+            $data['image'] = $newImageName;
+        }
+
+        $productModel->updateData($id, $data);
+        return redirect()->to('/dashboard/produk')->with('success', 'Product updated successfully.');
     }
-
-    $productModel->updateData($id, $data);
-    return redirect()->to('/dashboard/produk')->with('success', 'Product updated successfully.');
-}
 
 
     public function addCart()
@@ -114,6 +114,4 @@ class ProdukController extends BaseController
         $cartModel->insert($data);
         return redirect()->to('/keranjang')->with('success', 'Product added to cart successfully.');
     }
-
-
 }

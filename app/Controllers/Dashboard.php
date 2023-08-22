@@ -111,4 +111,16 @@ class Dashboard extends BaseController
         // echo view('components/admin/A_tambahData');
         echo view('components/admin/A_footer');
     }
+
+    public function table()
+    {
+        $data = [
+            'title' => 'Tambah Data'
+        ];
+        echo view('components/user/U_header', $data);
+        echo view('components/admin/A_sidebar');
+        echo view('components/admin/A_topbar', $data);
+        echo view('components/admin/A_table');
+        echo view('components/admin/A_footer');
+    }
 }

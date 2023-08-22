@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Pembayaran Order #1235245454</h1>
+        <h1 class="h3 mb-0 text-gray-800">Pembayaran Order #<?php echo $transaction['trans_code']; ?></h1>
     </div>
     <!--Content Row -->
     <div class="row">
@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="card-wrapper">
-                        <div class="card">
+                        <div class="card mb-3">
                             <div class="card-header">
                                 <h3 class="mb-0">Pembayaran</h3>
                                 <span class="float-right text-success font-weight-bold" style="margin-top: -30px;"></span>
@@ -29,7 +29,7 @@
                                     <tr>
                                         <td>Status</td>
                                         <td><b>
-                                                <span class="badge badge-info">Menunggu konfirmasi</span>
+                                                <span class="badge badge-info"><?php echo $transaction['trans_status']; ?></span>
                                                 <!-- <span class="badge badge-success">Dikonfirmasi</span> -->
                                                 <!--<span class="badge badge-danger">Gagal</span>-->
                                             </b></td>
@@ -53,7 +53,7 @@
                                                 $user = $userModel->find($transaction['user_id']);
 
                                                 if ($user) {
-                                                    echo '<b>Bca a.n ' . $user['name'] . ' (123691283)</b>';
+                                                    echo   $user['name'];
                                                 } else {
                                                     echo 'User tidak ditemukan';
                                                 }
@@ -62,6 +62,47 @@
                                         </td>
                                     </tr>
                                 </table>
+                            </div>
+                        </div>
+                        <!-- daftar menu -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="mb-0">Data Transaksi</h3>
+                                <span class="float-right text-success font-weight-bold" style="margin-top: -30px;"></span>
+                            </div>
+                            <div class="card-body p-1">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Kode Produk</th>
+                                            <th scope="col">Nama Produk</th>
+                                            <th scope="col">Jumlah</th>
+                                            <th scope="col">Total Pesanan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $produkCodes = json_decode($transaction['produk_code']);
+                                        $quantities = json_decode($transaction['quantity']);
+                                        $totalPrice = $transaction['total'];
+                                        $userName = $userModel->find($transaction['user_id'])['name'];
+
+                                        // Loop through each product code and quantity and create a row
+                                        for ($i = 0; $i < count($produkCodes); $i++) :
+                                            $productName = isset($nameProduk[$produkCodes[$i]]) ? $nameProduk[$produkCodes[$i]] : "Nama Produk Tidak Ditemukan";
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $i + 1; ?></td>
+                                                <td><?php echo $produkCodes[$i]; ?></td>
+                                                <td><?php echo $productName; ?></td>
+                                                <td><?php echo $quantities[$i]; ?></td>
+                                                <td>Rp <?= number_format($totalPrice, 2, ',', '.'); ?></td>
+                                            </tr>
+                                        <?php endfor; ?>
+                                    </tbody>
+                                </table>
+
                             </div>
                         </div>
                     </div>

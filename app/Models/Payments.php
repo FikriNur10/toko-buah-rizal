@@ -38,4 +38,9 @@ class Payments extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+    
+    public function getDataById($id)
+    {
+        return $this->where('id', $id)->first();
+    }
 }
