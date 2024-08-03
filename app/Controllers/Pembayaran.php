@@ -10,7 +10,7 @@ use App\Models\Payments;
 
 class Pembayaran extends BaseController
 {
-    public $apiKey = "240107374a697fa63aa22f7346ad14f8";
+    public $apiKey = "";
 
     public function index()
     {
